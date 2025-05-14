@@ -9,8 +9,8 @@ using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
 using Web3.module.Models;
-using Web3.Module.Indexes;
-using Web3.Module.Models;
+//using Web3.Module.Indexes;
+//using Web3.Module.Models;
 using YesSql.Sql;
 using static Npgsql.Replication.PgOutput.Messages.RelationMessage;
 

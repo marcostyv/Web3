@@ -1,6 +1,6 @@
 using Web3.Module.Drivers;
-using Web3.Module.Migrations;
-using Web3.Module.Models;
+//using Web3.Module.Migrations;
+//using Web3.Module.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ using OrchardCore.Data.Migration;
 using OrchardCore.Modules;
 using Web3.module.Migrations;
 using Web3.Module.Handlers;
-using Web3.Module.Indexes;
+//using Web3.Module.Indexes;
 using YesSql.Indexes;
 using OrchardCore.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -25,11 +25,6 @@ public sealed class Startup : StartupBase
     public override void ConfigureServices(IServiceCollection services)
     {
         // Content parts
-        services
-                .AddContentPart<PersonPart2>().
-                UseDisplayDriver<PersonPart2DisplayDriver>().
-                AddHandler<PersonPart2Handler>(); // Hacemos que este Content Part este disponible en el sistema (en la web)
-
         services.AddContentPart<OrchardPostPart>().
             UseDisplayDriver<OrchardPostDisplayDriver>().
             AddHandler<OrchardPostPartHandler>();
@@ -37,11 +32,7 @@ public sealed class Startup : StartupBase
         services.AddContentPart<HtmlBodyPart>();
 
         // Migrations
-        services.AddDataMigration<Person2Migrations>();
         services.AddDataMigration<OrchardPostMigrations>();
-
-        // Indexes
-        services.AddIndexProvider<PersonPart2IndexProvider>();
 
         // Filters
         services.Configure<MvcOptions>((options) =>
