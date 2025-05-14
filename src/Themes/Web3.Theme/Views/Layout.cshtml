@@ -1,0 +1,149 @@
+@* Web3.Theme Layout *@
+@{
+    Layout = null; // No se basa en ningún otro layout
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@RenderTitleSegments(Site.SiteName, "before")</title> @* Título con el nombre del sitio *@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> @* Para que se vea bien en móviles *@
+
+    <link rel="stylesheet" href="/Web3.Theme/css/site.css" /> @* Hoja de estilos del tema *@
+    <style>
+        /* Estilos generales del sitio */
+        body { /* Elejimos fuente, margen, color de fondo y color de texto */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        /* Parte de arriba (cabecera) con color oscuro */
+        header {
+            background-color: #1b1f23;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        /* Estilo de los enlaces del menú */
+        nav a {
+            color: white;
+            margin-right: 1.5rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+            nav a:hover {
+                text-decoration: underline;
+            }
+            /* Parte principal de la página */
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 12px;
+        }
+        /* Para que las imágenes se reduzcan un poco */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+        }
+
+        .content-block {
+            margin-bottom: 2rem;
+        }
+
+        .text-below-image {
+            margin-top: 1rem;
+        }
+        /* Parte de abajo del todo */
+        footer {
+            background-color: #1b1f23;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        /* Bloque que identifica el tema con su estilo propio */
+        .theme-identity {
+            font-family: monospace;
+            font-size: 1rem;
+            background-color: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-left: 4px solid #00b894;
+            margin: 1rem 0;
+        }
+        /* Caja con fondo negro para destacar contenido */
+        .dark-box {
+            background-color: #1f1f1f;
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+            .dark-box a {
+                color: white !important; /* Para que los enlaces SIEMPRE sean blancos */
+            }
+        /* Caja dorada para secciones importantes */
+        .gold-box {
+            background-color: #bfa65a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+    <resources type="Header" /> @* Para cargar scripts o estilos adicionales *@
+</head>
+<body>
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: auto;">
+            <h2 style="margin: 0;"><a href="/" style="color:white; text-decoration:none;">@Site.SiteName</a></h2> @* Nombre del sitio como logo *@
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/blog">Blog</a>
+                <a href="/admin">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @await RenderSectionAsync("Header", required: false) @* Sección opcional para el header dinámico *@
+        @await RenderSectionAsync("Messages", required: false) @* Mensajes como "contenido publicado" *@
+
+        <div class="theme-identity">
+            Web3.Theme - By Marcos Granero.
+        </div>
+
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+            <div class="dark-box">
+                <p>Bienvenido, @User.Identity.Name!</p> @* Mensaje solo si el usuario está logueado *@
+            </div>
+        }
+
+        @await DisplayAsync(await New.AdhocShape(Message: T["This is the Web3 theme by now"], User: User)) @* Muestra mensaje personalizado con nombre *@
+
+        <div class="content-block dark-box">
+            @await RenderBodyAsync() @* Aquí se mete el contenido principal de cada página *@
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - @Site.SiteName</p> @* Año actual y nombre del sitio *@
+        <p>
+            <a href="https://github.com/OrchardCMS/OrchardCore" style="color:lightgray;">Orchard Core GitHub</a>
+        </p>
+    </footer>
+
+    <resources type="FootScript" /> @* Scripts del final de página (mejor rendimiento) *@
+</body>
+</html>

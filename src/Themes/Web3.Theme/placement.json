@@ -1,0 +1,28 @@
+﻿/* AQUI EDITAMOS LAS POSICIONES, salidas, cuando mostrar, etc, DE LOS CONTENT SHAPES */
+{
+    "TitlePart": [
+        {
+            "place": "Header:5"
+        }
+    ]
+}
+
+/*
+
+{
+  "TextField": [            ---> El Content shape que vamos a editar
+    {
+      "displayType": "Detail",          ---> Solo se aplica en ciertos modos de vista, en este caso display
+      "differentiator": "Article-MyTextField",          ---> Para distinguir ccampos con nombres especificos dentro de otros, etc
+      "contentType": [ "Page", "BlogPost" ],          ---> Solo se aplica si son estos Content Types
+      "contentPart": [ "HtmlBodyPart" ],          ---> Solo si el content shape esta en este Content Part
+      "path": [ "/mypage" ],          ---> Solo si se accede a esta URL exacta
+      "place": "Content",          ---> Zona donde se pone del Layout
+      "alternates": [ "TextField_Title" ],          ---> 
+      "wrappers": [ "TextField_Title" ],
+      "shape": "AnotherShape"          ---> Usa otro shape para renderizar
+    }
+  ]
+}
+
+*/

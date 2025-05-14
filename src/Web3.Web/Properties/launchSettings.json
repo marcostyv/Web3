@@ -1,0 +1,33 @@
+{
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Web3.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "Perfil 1": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "run",
+      "workingDirectory": "C:\\Users\\Marcos\\Desktop\\Estudios\\4AnyoDeCarrera\\EstudiosBudapest\\ASP_NET_Core_web_application_development_with_Orchard_Core_CMS\\Web3\\src\\Web3.Web"
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:8080",
+      "sslPort": 44300
+    }
+  }
+}

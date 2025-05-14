@@ -1,0 +1,11 @@
+﻿@model OrchardCore.Title.ViewModels.TitlePartViewModel
+
+<h1>@Model.Title</h1>
+
+@T["This is our title! Budapest "]
+
+@* Con esto accedemos a exactamente el contenido que tiene en la parte del body del contenido del content item de TitlePart que es un Model. Me cago en mi vida*@
+
+
+@Model.TitlePart.ContentItem.Content.HtmlBodyPart.Html 
+

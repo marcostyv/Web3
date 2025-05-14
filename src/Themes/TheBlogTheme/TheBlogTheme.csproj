@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<OrchardRazorTarget>true</OrchardRazorTarget>
+		<OutputPath>..\..\Web3.Web\bin\$(Configuration)\net7.0\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.Queries" Version="1.8.2" />
+	</ItemGroup>
+
+</Project>

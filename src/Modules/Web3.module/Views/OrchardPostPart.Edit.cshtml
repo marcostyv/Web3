@@ -1,0 +1,11 @@
+﻿@model Web3.Module.ViewModels.OrchardPostPartViewModel
+
+
+<fieldset class="form-group" asp-validation-class-for="TitlePost">
+    <label asp-for="TitlePost">@T["TitlePost"] <span asp-validation-for="TitlePost"></span></label>
+    <input asp-for="TitlePost" class="form-control" />
+    <span class="hint">@T["Title of the post"]</span>
+</fieldset>
+
+
+

@@ -1,0 +1,18 @@
+﻿@T["This message is from the AdhocShape"] <!-- Lo pongo con localizacion -->
+
+
+@* Mostrar el mensaje si existe, este mensaje es el que se pone en la declaracion en el layout *@
+@if (Model?.Message != null)
+{
+    <div>@Model.Message</div>
+}
+
+@* Mostrar el nombre de usuario si existe *@
+@if (Model?.User?.Identity?.Name != null)
+{
+    <div>@Model.User.Identity.Name</div>
+}
+
+@* Model.Message @* Accedo al valor del objeto que he pasado como parámetro y se muestra en pantalla *@
+
+@* Model.User.Identity.Name @* Accedo al valor del objeto que he pasado como parámetro y se muestra en pantalla *@
