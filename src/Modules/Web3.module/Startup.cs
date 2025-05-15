@@ -14,7 +14,7 @@ using Web3.Module.Handlers;
 using YesSql.Indexes;
 using OrchardCore.Data;
 using Microsoft.AspNetCore.Mvc;
-using Web3.module.Filters;
+//using Web3.module.Filters;
 using Web3.module.Models;
 using OrchardCore.Html.Models;
 
@@ -34,26 +34,8 @@ public sealed class Startup : StartupBase
         // Migrations
         services.AddDataMigration<OrchardPostMigrations>();
 
-        // Filters
-        services.Configure<MvcOptions>((options) =>
-        {
-            options.Filters.Add(typeof(ShapeInjectionFilter));
-        });
-
-        // Html part
-        
-
     }
 
-    public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-    {
-        routes.MapAreaControllerRoute(
-            name: "Home",
-            areaName: "Web3.module",
-            pattern: "Home/Index",
-            defaults: new { controller = "Home", action = "Index" }
-        );
-    }
 }
 
 /*

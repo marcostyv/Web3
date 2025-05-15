@@ -34,9 +34,6 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" Version="2.1.7" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Indexes\" />
-	  <Folder Include="Views\Home\" />
-	</ItemGroup>
+
 
 </Project>
