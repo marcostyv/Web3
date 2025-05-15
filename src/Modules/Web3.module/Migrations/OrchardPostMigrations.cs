@@ -30,16 +30,7 @@ namespace Web3.module.Migrations
 
             await _contentDefinitionManager.AlterPartDefinitionAsync(nameof(OrchardPostPart), part => part
                 .Attachable()
-                /*.WithField(nameof(PersonPart2.Biography), field => field
-                    .OfType(nameof(TextField)) // Definimos que tipo de field es!
-                    .WithDisplayName("Biography") // Nombre "Biography
-                    .WithSettings(new TextFieldSettings // Descripción
-                    {
-                        Hint = "The person's biography."
-                    })
-                    
-                    .WithEditor("TextArea"))*/ // Para que el campo de entrada sea un textArea que es mas grande para una biografia   
-
+                /* First I make the OrchardPostPart attachable */
                 );
                 // Definimos como se vera en el admin (nombre, propiedades,...)
             await _contentDefinitionManager.AlterTypeDefinitionAsync("OrchardPost", type => type
@@ -67,6 +58,8 @@ namespace Web3.module.Migrations
 
             return 2;
         }
+
+        // Here I add an html part
         public int UpdateFrom2()
         {
 
@@ -79,6 +72,7 @@ namespace Web3.module.Migrations
             return 3;
         }
 
+        // Here I select the type of html part (Wysiwyg)
         public int UpdateFrom3()
         {
 
@@ -92,6 +86,7 @@ namespace Web3.module.Migrations
             return 4;
         }
 
+        // I add an URL for adding Orchard videos to the OrchardPosts
         public int UpdateFrom4()
         {
 
